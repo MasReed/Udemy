@@ -7,25 +7,47 @@
 body {
     background: #758184;
     color: #F5CDAA;
+    font-family: 'Raleway', sans-serif;
     margin: 0px;
+    text-align: center;
 }
 
 h1 {
+    font-family: 'Long Cang', cursive;
     margin-top: 0px;
+}
+
+h2 {
+    font-family: 'EB Garamond', serif;
+}
+
+h3 {
+    font-family: 'EB Garamond', serif;
 }
 
 .top-container {
     background-color: #5D5B6A;
+    padding-top: 100px;
+    position: relative;
 }
 
 .middle-container {
-    background-color: red;
-    height: 200px;
-    width: 200px;
+
 }
 
 .bottom-container {
-    background-color: blue;
-    height: 200px;
-    width: 200px;
 }
+
+.top-cloud {
+    position: absolute;
+    right: 300px;
+    top: 50px;
+}
+
+.bottom-cloud {
+    position: absolute;
+    left: 300px;
+    bottom: 300px;
+}
+
+.mountain {}
