@@ -3,51 +3,150 @@
 #758184
 #CFB495
 #F5CDAA
+#F2977B
 */
+/******************** SELECTOR TAGS ********************/
 body {
     background: #758184;
     color: #F5CDAA;
-    font-family: 'Raleway', sans-serif;
-    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
     text-align: center;
 }
 
 h1 {
     font-family: 'Long Cang', cursive;
-    margin-top: 0px;
+    font-size: 9rem;
+    margin: 50px 0;
 }
 
 h2 {
-    font-family: 'EB Garamond', serif;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.75rem;
+    font-weight: normal;
 }
 
 h3 {
-    font-family: 'EB Garamond', serif;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1rem;
+    font-weight: normal;
 }
 
-.top-container {
-    background-color: #5D5B6A;
-    padding-top: 100px;
-    position: relative;
-}
+/******************** CLASS TAGS ********************/
 
-.middle-container {
-
+.bottom-cloud {
+    position: absolute;
+    left: 18%;
+    bottom: 38%;
 }
 
 .bottom-container {
+    background-color: #5D5B6A;
+    margin: 0;
+    padding: 10px 0;
+    position: relative;
+}
+
+.chili-img {
+    float: right;
+    width: 25%;
+    margin-left: 30px;
+}
+
+.computer-img {
+    float: left;
+    width: 25%;
+    margin-right: 30px;
+}
+
+.copyright-tag {
+    margin: 50px 0 0;
+}
+
+.footer-link {
+    color: #F2977B;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.middle-container {
+    margin: 0;
+    padding: 100px 0 50px 0;
+    position: relative;
+}
+
+.skill-row {
+    line-height: 2;
+    margin: 150px auto;
+    text-align: left;
+    width: 50%;
+}
+
+.orange-title {
+    color: #F2977B;
 }
 
 .top-cloud {
     position: absolute;
-    right: 300px;
-    top: 50px;
+    right: 15%;
+    top: 25%;
 }
 
-.bottom-cloud {
-    position: absolute;
-    left: 300px;
-    bottom: 300px;
+.top-container {
+    background-color: #5D5B6A;
+    margin: 0;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    position: relative;
 }
 
-.mountain {}
+
+/******************** ID TAGS ********************/
+
+
+
+
+
+/******************** CSS BUTTON ********************/
+.btn {
+   background: #758184;
+   background-image: -webkit-linear-gradient(top, #758184, #5D5B6A);
+   background-image: -moz-linear-gradient(top, #758184, #5D5B6A);
+   background-image: -ms-linear-gradient(top, #758184, #5D5B6A);
+   background-image: -o-linear-gradient(top, #758184, #5D5B6A);
+   background-image: -webkit-gradient(top, bottom, #758184, #5D5B6A);
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   color: #F2977B;
+   font-family: Arial;
+   font-size: 20px;
+   font-weight: 100;
+   padding: 20px 40px;
+   -webkit-box-shadow: 1px 1px 20px 0 #000000;
+   -moz-box-shadow: 1px 1px 20px 0 #000000;
+   box-shadow: 1px 1px 20px 0 #000000;
+   text-shadow: 1px 1px 20px #000000;
+   border: solid #F5CDAA 1px;
+   text-decoration: none;
+   display: inline-block;
+   cursor: pointer;
+   text-align: center;
+}
+
+.btn:hover {
+   border: solid #000000 1px;
+   background: #5D5B6A;
+   background-image: -webkit-linear-gradient(top, #5D5B6A, #758184);
+   background-image: -moz-linear-gradient(top, #5D5B6A, #758184);
+   background-image: -ms-linear-gradient(top, #5D5B6A, #758184);
+   background-image: -o-linear-gradient(top, #5D5B6A, #758184);
+   background-image: -webkit-gradient(top, bottom, #5D5B6A, #758184);
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   text-decoration: none;
+}
