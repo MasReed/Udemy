@@ -1,23 +1,24 @@
 /*
-#5D5B6A
-#758184
-#CFB495
-#F5CDAA
-#F2977B
+#5D5B6A  #282638 -> top container bg color
+#758184  #49464D -> body bg color
+#CFB495  #EBF2FF -> body text
+#F5CDAA  #F3BB8A -> original as 'orange title'
+#F2977B  #FFDA07
 */
 /******************** SELECTOR TAGS ********************/
 body {
-    background: #758184;
-    color: #F5CDAA;
+    background: #49464d;
+    color: #EBF2FF;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     text-align: center;
 }
 
 h1 {
+    display: inline-block;
     font-family: 'Long Cang', cursive;
     font-size: 9rem;
-    margin: 50px 0;
+    margin: 100px 0 50px;
 }
 
 h2 {
@@ -36,12 +37,13 @@ h3 {
 
 .bottom-cloud {
     position: absolute;
-    left: 18%;
-    bottom: 38%;
+    left: 24%;
+    bottom: 28%;
+    transform: scaleX(-1);
 }
 
 .bottom-container {
-    background-color: #5D5B6A;
+    background-color: #282638;
     margin: 0;
     padding: 10px 0;
     position: relative;
@@ -65,7 +67,7 @@ h3 {
 }
 
 .footer-link {
-    color: #F2977B;
+    color: #F5CDAA;
     font-size: 1.2rem;
     font-weight: bold;
     margin: 0 20px;
@@ -78,10 +80,31 @@ h3 {
     color: #EAF6F6
 }
 
+.mid-cloud {
+    position: absolute;
+    right: 15%;
+    top: 25%;
+    transform: scaleX(-1);
+}
+
 .middle-container {
     margin: 0;
     padding: 100px 0 50px 0;
     position: relative;
+}
+
+.mountain-img {
+    position: absolute;
+    bottom: 0;
+    right: 6%;
+    height: 31.2375rem;
+    width: 52.325rem;
+    max-width: 44%;
+    max-height: 54%;
+}
+
+.orange-title {
+    color: #F5CDAA;
 }
 
 .skill-row {
@@ -91,21 +114,16 @@ h3 {
     width: 50%;
 }
 
-.orange-title {
-    color: #F2977B;
-}
-
 .top-cloud {
     position: absolute;
-    right: 15%;
-    top: 25%;
+    left: 15%;
+    top: 17%;
 }
 
 .top-container {
-    background-color: #5D5B6A;
+    background-color: #282638;
+    height: 100vh;
     margin: 0;
-    padding-top: 50px;
-    padding-bottom: 10px;
     position: relative;
 }
 
@@ -127,7 +145,7 @@ h3 {
    -webkit-border-radius: 20px;
    -moz-border-radius: 20px;
    border-radius: 20px;
-   color: #F2977B;
+   color: #282638;
    font-family: Arial;
    font-size: 20px;
    font-weight: 100;
