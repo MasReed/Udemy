@@ -70,6 +70,11 @@ h3 {
     margin: 0 20px;
     padding: 10px;
     text-align: center;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #EAF6F6
 }
 
 .middle-container {
