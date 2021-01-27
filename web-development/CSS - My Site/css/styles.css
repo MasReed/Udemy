@@ -122,10 +122,9 @@ h3 {
 
 .top-container {
     background-color: #282638;
-    height: 937px;
+    height: 100vh;
     margin: 0;
     position: relative;
-    width: auto
 }
 
 
