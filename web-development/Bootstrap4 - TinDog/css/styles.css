@@ -16,19 +16,22 @@ h1 {
 }
 
 .container-fluid {
-    padding: 3% 5%;
+    padding: 3% 10% 1%;
 }
 
 .dog-selfie {
-    margin: 40px 0 0 40px;
     transform: rotate(25deg);
-    width: 50%
+    position: absolute;
+    right: 29%;
+    width: 50%;
 }
 
 
 /* Features Section */
 .features-section {
+    background-color: #fff;
     padding: 8% 12%;
+    position: relative;
     text-align: center;
 }
 
