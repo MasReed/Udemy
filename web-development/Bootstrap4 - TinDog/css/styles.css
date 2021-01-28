@@ -82,3 +82,45 @@ h1 {
     background-color: #ff4c68;
     color: white;
 }
+
+
+
+/* Testimonials Section */
+.carousel-item {
+    padding: 8% 12%;
+}
+
+.testimonial-section {
+    background-color: #ef8172;
+    color: #fff;
+    text-align: center;
+}
+
+.testimonial-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.testimonial-img {
+    border-radius: 100%;
+    margin: 20px;
+    width: 10%;
+}
+
+
+
+/* Press Section */
+
+.press-section {
+    background-color: #ef8172;
+    padding-bottom: 3%;
+    text-align: center;
+}
+
+.press-img {
+    width: 15%;
+    margin: 20px 20px 50px;
+
+}
