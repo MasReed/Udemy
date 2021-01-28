@@ -124,3 +124,27 @@ h1 {
     margin: 20px 20px 50px;
 
 }
+
+
+/* Pricing Section */
+
+.pricing-section {
+    padding: 100px;
+    text-align: center;
+}
+
+.pricing-column {
+    padding: 4% 2%;
+}
+
+.pricing-group {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.pricing-cost {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
