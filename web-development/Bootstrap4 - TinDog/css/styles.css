@@ -30,6 +30,16 @@ body {
     font-weight: 800;
 }
 
+/* SECTIONS */
+.color-section {
+    background-color: #ff4c68;
+    color: #fff;
+}
+
+.white-section {
+    background-color: #fff;
+}
+
 /* NAVBAR SECTION */
 .navbar {
     padding: 0 0 4.5rem;
@@ -52,19 +62,14 @@ body {
 }
 
 /* TITLE SECTION */
-.title-section {
-    background-color: #ff4c68;
-    color: white;
-    text-align: left;
-}
-
 .title-section .container-fluid {
+    /* Override container-fluid padding for top of webpage */
     padding: 3% 15% 4%;
+    text-align: left;
 }
 
 /* FEATURES SECTION */
 .features-section {
-    background-color: #fff;
     padding: 8% 12%;
     position: relative;
 }
@@ -86,7 +91,6 @@ body {
 /* TESTIMONIALS SECTION */
 .testimonial-section {
     background-color: #ef8172;
-    color: #fff;
 }
 
 .testimonial-img {
@@ -116,16 +120,7 @@ body {
 }
 
 /* CTA SECTION */
-.cta-section {
-    background-color: #ff4c68;
-    color: white;
-}
-
 /* FOOTER SECTION */
-.footer-section {
-    background-color: #fff;
-}
-
 .footer-icon {
     padding: 30px;
 }
