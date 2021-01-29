@@ -1,17 +1,25 @@
 /* font-family: 'Ubuntu', sans-serif; */
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
 
-body, h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p {
     font-family: 'Montserrat', sans-serif;
 }
 
- /* HEADINGS */
+/* CONTAINERS */
+.container-fluid {
+    padding: 7% 12%;
+}
 
- .biggest-heading {
-     font-family: 'Montserrat', sans-serif;
-     font-size: 3.5rem;
-     font-weight: 800;
-     line-height: 1.5;
- }
+/* HEADINGS */
+.biggest-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.5;
+}
 
 .big-heading {
     font-family: 'Montserrat', sans-serif;
@@ -26,15 +34,109 @@ body, h1, h2, h3, h4, h5, h6, p {
     font-weight: 800;
 }
 
-
-/* OTHER */
-
-.btn-dl {
-    margin: 10% 4% 10% 0;
+/* NAVBAR SECTION */
+.navbar {
+    padding: 0 0 4.5rem;
 }
 
-.container-fluid {
-    padding: 3% 10% 1%;
+.navbar-brand {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.nav-item {
+    padding: 0 18px;
+}
+
+.nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 100;
+}
+
+/* TITLE SECTION */
+.title-section {
+    background-color: #ff4c68;
+    color: white;
+    text-align: left;
+}
+
+#title .container-fluid {
+    padding: 3% 15% 4%;
+}
+
+/* FEATURES SECTION */
+.features-section {
+    background-color: #fff;
+    padding: 8% 12%;
+    position: relative;
+}
+
+.features-icon {
+    color: #ef8172;
+    font-size: 4rem;
+    padding: 10%;
+}
+
+.features-icon:hover {
+    color: #ff4c68
+}
+
+.features-item {
+    padding: 2%;
+}
+
+/* TESTIMONIALS SECTION */
+.testimonial-section {
+    background-color: #ef8172;
+    color: #fff;
+}
+
+.testimonial-img {
+    border-radius: 100%;
+    margin: 20px;
+    width: 10%;
+}
+
+/* PRESS SECTION */
+.press-section {
+    background-color: #ef8172;
+    padding-bottom: 3%;
+}
+
+.press-img {
+    width: 15%;
+    margin: 20px 20px 50px;
+}
+
+/* PRICING SECTION */
+.pricing-section {
+    padding: 100px;
+}
+
+.pricing-column {
+    padding: 4% 2%;
+}
+
+/* CTA SECTION */
+.cta-section {
+    background-color: #ff4c68;
+    color: white;
+}
+
+/* FOOTER SECTION */
+.footer-section {
+    background-color: #fff;
+}
+
+.footer-icon {
+    padding: 30px;
+}
+
+/* OTHER */
+.btn-dl {
+    margin: 10% 4% 10% 0;
 }
 
 .dog-selfie-img {
@@ -59,129 +161,8 @@ body, h1, h2, h3, h4, h5, h6, p {
     font-size: 1.2rem;
 }
 
-/* Features Section */
-.features-section {
-    background-color: #fff;
-    padding: 8% 12%;
-    position: relative;
-    text-align: center;
-}
-
-.features-icon {
-    color: #ef8172;
-    font-size: 4rem;
-    padding: 10%;
-}
-
-.features-icon:hover {
-    color: #ff4c68
-}
-
-.features-item {
-    padding: 5%;
-}
-
-
-/* Navbar Section */
-
-.navbar {
-    padding: 0 0 4.5rem;
-}
-
-.navbar-brand {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.nav-item {
-    padding: 0 18px;
-}
-
-.nav-link {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 100;
-}
-
-.title-section {
-    background-color: #ff4c68;
-    color: white;
-}
-
-
-/* Testimonials Section */
-
-.carousel-item {
-    padding: 8% 12%;
-}
-
-.testimonial-section {
-    background-color: #ef8172;
-    color: #fff;
-    text-align: center;
-}
-
-.testimonial-img {
-    border-radius: 100%;
-    margin: 20px;
-    width: 10%;
-}
-
-
-/* Press Section */
-
-.press-section {
-    background-color: #ef8172;
-    padding-bottom: 3%;
-    text-align: center;
-}
-
-.press-img {
-    width: 15%;
-    margin: 20px 20px 50px;
-}
-
-
-/* Pricing Section */
-
-.pricing-section {
-    padding: 100px;
-    text-align: center;
-}
-
-.pricing-column {
-    padding: 4% 2%;
-}
-
-
-/* CTA Section */
-
-.cta-section {
-    background-color: #ff4c68;
-    color: white;
-    padding: 5% 12%;
-    text-align: center;
-}
-
-
-/* Footer Section */
-
-.footer-section {
-    background-color: #fff;
-    padding: 5% 12%;
-    text-align: center;
-}
-
-.footer-icon {
-    padding: 30px;
-}
-
-
 /* MEDIA QUERY */
-
 @media (max-width: 1028px) {
-
     .title-section {
         text-align: center;
     }
@@ -190,5 +171,4 @@ body, h1, h2, h3, h4, h5, h6, p {
         position: static;
         transform: rotate(0);
     }
-
 }
