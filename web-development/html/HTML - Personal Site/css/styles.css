@@ -24,8 +24,15 @@ hr {
 
 h1 {
     color: #233142;
+    font-size: 3.5rem;
 }
 
 h3 {
-    color: #455d7a;
+    color: #223142;
+    font-size: 2rem;
+}
+
+.headshot-img {
+    height: 400px;
+    border-radius: 100%;
 }
