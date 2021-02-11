@@ -40,6 +40,21 @@ app.post('/bmiCalculator', function(req, res){
 });
 
 
+//CALCULATE Farenheit from Celcius
+app.get('/f-to-c', function(req, res){
+    res.sendFile(__dirname + '/f-to-c.html');
+});
+
+app.post('/f-to-c', function(req, res){
+
+    var deg_f = Number(req.body.deg_f);
+
+    var deg_c = (deg_f - 32) * (5/9);
+
+    res.send(deg_f + " F is " + deg_c + "C");
+})
+
+
 // listen for server
 app.listen(port, function(){
     console.log("server started on port " + port);
