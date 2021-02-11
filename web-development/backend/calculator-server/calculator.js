@@ -51,8 +51,20 @@ app.post('/f-to-c', function(req, res){
 
     var deg_c = (deg_f - 32) * (5/9);
 
-    res.send(deg_f + " F is " + deg_c + "C");
+    res.send(deg_f + " F is " + deg_c + " C.");
 })
+
+
+//Calculate Celcius from Farenheit
+app.get('/c-to-f', function(req, res){
+    res.sendFile(__dirname + '/c-to-f.html');
+});
+
+app.post('/c-to-f', function (req, res){
+    var deg_c = Number(req.body.deg_c);
+    var deg_f = (deg_c * (9/5)) + 32;
+    res.send(deg_c + " C is " + deg_f + " F.");
+});
 
 
 // listen for server
