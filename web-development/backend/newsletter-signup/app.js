@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 3000;
 
+// const mailKey = config.MAILCHIMP_KEY;
+
 app.use(express.static(__dirname));
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -35,14 +37,14 @@ app.post('/', function(req, res){
     };
 
     const jsonData = JSON.stringify(data);
-    const listID = "21bfe4cd21";
+    const listID = "a54eb2ea52";
 
     const url = "https://us1.api.mailchimp.com/3.0/lists/" + listID;
 
     const options = {
         method: 'POST',
-        auth: "'somestring':7ab8fc7cad16b0e373c1b86b95ea29db-us1"
-    }
+        auth: "'somestring':53978bdcb6ac7edacf00893be5016f5c-us1"
+    };
 
     const request = https.request(url, options, function(response){
 
@@ -70,7 +72,3 @@ app.post('/failure', function(req, res){
 app.listen(port, function(){
     console.log("Running on port " + port);
 });
-
-
-// mailchimp APIkey
-// 7ab8fc7cad16b0e373c1b86b95ea29db-us1
