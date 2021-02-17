@@ -1,7 +1,6 @@
-// Get the date in DD/Mon/YYYY format
-module.exports.getDate = getDate;
 
-function getDate(){
+// Get the date in DD/Mon/YYYY format
+exports.getDate = function(){
 
     let options = {
         weekday: "long",
@@ -15,9 +14,7 @@ function getDate(){
 
 
 // Day of the week
-module.exports.getDay = getDay;
-
-function getDay(){
+exports.getDay = function(){
 
     let options = {
         weekday: "long"
