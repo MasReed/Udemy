@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const date = require(__dirname + '/date.js'); //local module
 
 const port = 3000;
 const app = express();
@@ -14,17 +15,7 @@ app.use(express.static('public'));
 
 // Home Route
 app.get('/', function(req, res){
-
-    let options = {
-        weekday: "long",
-        day: "numeric",
-        month: "short",
-        year: "numeric"
-    };
-
-    let date = new Date().toLocaleDateString("en-AU", options);
-
-    res.render('list', {listTitle: date, newItems: items})
+    res.render('list', {listTitle: date.getDate(), newItems: items})
 });
 
 app.post('/', function(req, res){
