@@ -2,7 +2,7 @@
 // Get the date in DD/Mon/YYYY format
 exports.getDate = function(){
 
-    let options = {
+    const options = {
         weekday: "long",
         day: "numeric",
         month: "short",
@@ -16,7 +16,7 @@ exports.getDate = function(){
 // Day of the week
 exports.getDay = function(){
 
-    let options = {
+    const options = {
         weekday: "long"
     };
 

@@ -5,8 +5,8 @@ const date = require(__dirname + '/date.js'); //local module
 const port = 3000;
 const app = express();
 
-let items = ['Buy Food', 'Cook Food', 'Eat Food'];
-let workItems = [];
+const items = ['Buy Food', 'Cook Food', 'Eat Food'];
+const workItems = [];
 
 app.set('view engine', 'ejs');
 
@@ -38,7 +38,7 @@ app.get('/work', function(req, res){
 
 
 app.post('/work', function(req, res){
-    let item = req.body.newItem;
+    const item = req.body.newItem;
     workItems.push(item);
     res.redirect('/work');
 });
