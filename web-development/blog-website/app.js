@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
+const _ = require('lodash');
 
 
 //temp data
@@ -27,8 +28,10 @@ app.use(express.static('public'));
 
 //ROOT PAGE
 app.get('/', function(req, res){
-    res.render("home.ejs", {homeContent: homeContent});
-    console.log(posts);
+    res.render("home.ejs", {
+        homeContent: homeContent,
+        posts: posts
+    });
 });
 
 app.post('/', function(req, res){
@@ -68,12 +71,31 @@ app.post('/compose', function(req, res){
     };
 
     posts.push(post);
-
     res.redirect('/');
+});
+
+
+// DYNAMIC PAGE
+app.get('/posts/:postName', function(req, res) {
+
+  const requestedTitle = _.lowerCase(req.params.postName);
+
+  posts.forEach(function(post) {
+
+      const postTitle = _.lowerCase(post.title);
+
+      if (postTitle === requestedTitle){
+
+          res.render('post.ejs', {
+              title: post.title,
+              content: post.content
+          })
+      }
+  });
 });
 
 
 //Bind server connection
 app.listen(port, function(){
     console.log("Server started on port " + port);
-})
+});
