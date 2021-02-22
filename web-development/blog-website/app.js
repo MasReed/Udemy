@@ -14,6 +14,9 @@ const port = 3000;
 
 const app = express();
 
+//All post data
+let posts = [];
+
 
 //Utilize EJS
 app.set('view engine', 'ejs');
@@ -25,6 +28,7 @@ app.use(express.static('public'));
 //ROOT PAGE
 app.get('/', function(req, res){
     res.render("home.ejs", {homeContent: homeContent});
+    console.log(posts);
 });
 
 app.post('/', function(req, res){
@@ -58,8 +62,14 @@ app.get('/compose', function(req, res){
 });
 
 app.post('/compose', function(req, res){
-    console.log(req.body.postTitle); //body-parser
-    console.log(req.body.postContent);
+    const post = {
+        title: req.body.postTitle,
+        content: req.body.postContent,
+    };
+
+    posts.push(post);
+
+    res.redirect('/');
 });
 
 
