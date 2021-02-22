@@ -52,6 +52,17 @@ app.post('/contact', function(req, res){
 });
 
 
+//COMPOSE PAGE
+app.get('/compose', function(req, res){
+    res.render("compose.ejs");
+});
+
+app.post('/compose', function(req, res){
+    console.log(req.body.postTitle); //body-parser
+    console.log(req.body.postContent);
+});
+
+
 //Bind server connection
 app.listen(port, function(){
     console.log("Server started on port " + port);
