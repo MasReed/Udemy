@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const _ = require('lodash');
 const date = require(__dirname + '/date.js'); //local module
 
 // App instance
@@ -31,6 +32,15 @@ const itemsSchema = new mongoose.Schema({
 const Item = new mongoose.model("Item", itemsSchema);
 
 
+// List Schema
+const listSchema = {
+    name: String,
+    items: [itemsSchema]
+}
+
+const List = mongoose.model("List", listSchema);
+
+
 // Default items
 const item1 = new Item({
     name: "Welcome to your todo list!"
@@ -47,16 +57,7 @@ const item3 = new Item({
 const defaultItems = [item1, item2, item3]
 
 
-// List Schema
-const listSchema = {
-    name: String,
-    items: [itemsSchema]
-}
-
-const List = mongoose.model("List", listSchema);
-
-
-// HOME ROUTE
+// Home Route
 app.get('/', function(req, res) {
 
     // Get all items in DB
@@ -82,6 +83,7 @@ app.get('/', function(req, res) {
     });
 });
 
+
 // Add New Item
 app.post('/', function(req, res) {
 
@@ -92,11 +94,14 @@ app.post('/', function(req, res) {
         name: itemName
     });
 
-    if (listName === date.getDate()){
+    //Check for custom list
+    if (listName === date.getDate()) {
         item.save();
         res.redirect('/');
     } else {
-        List.findOne({name: listName}, function(err, foundList){
+        List.findOne({
+            name: listName
+        }, function(err, foundList) {
             foundList.items.push(item);
             foundList.save();
             res.redirect('/' + listName);
@@ -108,25 +113,45 @@ app.post('/', function(req, res) {
 app.post('/delete', function(req, res) {
 
     const checkedItemId = req.body.checkbox;
+    const listName = req.body.listName;
 
-    Item.findByIdAndRemove(checkedItemId, function(err) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.redirect('/');
-        }
-    });
+    if (listName === date.getDate()) {
+        Item.findByIdAndRemove(checkedItemId, function(err) {
+            if (!err) {
+                res.redirect('/');
+            }
+        });
+    } else {
+        List.findOneAndUpdate({
+                name: listName
+            }, {
+                $pull: {
+                    items: {
+                        _id: checkedItemId
+                    }
+                }
+            }, {
+                useFindAndModify: false
+            },
+            function(err, foundList) {
+                if (!err) {
+                    res.redirect('/' + listName);
+                }
+            });
+    }
 });
 
 
 // DYNAMIC ROUTE
-app.get('/:customListName', function(req, res){
+app.get('/:customListName', function(req, res) {
 
-    const customListName = req.params.customListName;
+    const customListName = _.capitalize(req.params.customListName);
 
-    List.findOne({name: customListName}, function(err, foundList){
-        if (!err){
-            if (!foundList){
+    List.findOne({
+        name: customListName
+    }, function(err, foundList) {
+        if (!err) {
+            if (!foundList) {
                 // Create a new list
                 const list = new List({
                     name: customListName,
@@ -147,10 +172,7 @@ app.get('/:customListName', function(req, res){
 });
 
 
-
-
-
-// ABOUT ROUTE
+// About Route
 app.get('/about', function(req, res) {
     res.render('about');
 });
