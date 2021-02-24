@@ -1,66 +1,86 @@
-// Use mongoose
+
 const mongoose = require('mongoose');
 
-// Initialize connection
 mongoose.connect('mongodb://localhost:27017/fruitsDB',
     {useNewUrlParser: true, useUnifiedTopology: true}
 );
 
-//Fruit schema
+
+
+//FRUITS
 const fruitSchema = new mongoose.Schema({
-    name: String,
-    rating: Number,
+    name: {
+        type: String,
+        required: [true, "No nameless fruits!"]
+    },
+    rating: {
+        type: Number,
+        min: 1,
+        max: 10,
+    },
     review: String
 });
 
-// Fruit model to collection
 const Fruit = mongoose.model("Fruits", fruitSchema);
 
-//Create new data entry
 const fruit = new Fruit({
     name: "Apple",
     rating: 7,
     review: "A standard fruit."
 });
 
-//Save to db
 // fruit.save();
 
 
-//Person schema
+//PERSONS
 const personSchema = new mongoose.Schema({
     name: String,
-    age: Number
+    age: Number,
+    favoriteFruit: fruitSchema,
 });
 
-// Fruit model to collection
 const Person = mongoose.model("Person", personSchema);
 
-//Create new data entry
-const person = new Person({
-    name: "John",
-    age: 37
-});
+// const person = new Person({
+//     name: "John",
+//     age: 37
+// });
 
 // person.save();
 
-const kiwi = new Fruit({
-    name: "Kiwi",
-    rating: 10,
-    review: "Awesome"
+//CRUD Methods
+
+// CREATE FRUITS
+// const kiwi = new Fruit({
+//     name: "Kiwi",
+//     rating: 10,
+//     review: "Awesome"
+// });
+//
+// const grape = new Fruit({
+//     name: "Grape",
+//     rating: 10,
+//     review: "Awesomee"
+// });
+//
+// const banana = new Fruit({
+//     name: "Banana",
+//     rating: 8,
+//     review: "Awesom"
+// });
+const pineapple = new Fruit({
+    name: "Pineapple",
+    rating: 7,
+    review: "Awm"
 });
 
-const grape = new Fruit({
-    name: "Grape",
-    rating: 10,
-    review: "Awesomee"
-});
+const person = new Person({
+    name: "Amy",
+    age: 12,
+    favoriteFruit: pineapple
+})
 
-const banana = new Fruit({
-    name: "Banana",
-    rating: 8,
-    review: "Awesom"
-});
+person.save();
 
 
 // Fruit.insertMany([kiwi, grape, banana], function(err){
@@ -72,6 +92,8 @@ const banana = new Fruit({
 // })
 
 
+
+// QUERY FRUITS
 Fruit.find(function(err, allFruits){
     if (err) {
         console.log(err);
@@ -80,5 +102,35 @@ Fruit.find(function(err, allFruits){
 
         //close connection
         mongoose.connection.close()
+    }
+});
+
+
+// UPDATE FRUITS
+Fruit.updateOne({_id: "60368b81c32f5124a888b3f0"}, {rating: 11}, function(err){
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("Updated doc");
+    }
+});
+
+
+// DELETE ENTRY
+Fruit.deleteOne({_id: "60368c5ffba72f38f47bec98"}, function(err){
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("Deleted doc");
+    }
+});
+
+
+// DELETE MANY
+Person.deleteMany({name: "John"}, function(err){
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("Deleted many docs");
     }
 });
