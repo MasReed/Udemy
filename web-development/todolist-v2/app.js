@@ -23,12 +23,13 @@ mongoose.connect("mongodb://localhost:27017/todolistDB", {
 });
 
 
-// Item schema
+// Items schema
 const itemsSchema = new mongoose.Schema({
     name: String
 });
 
 const Item = new mongoose.model("Item", itemsSchema);
+
 
 // Default items
 const item1 = new Item({
@@ -44,6 +45,15 @@ const item3 = new Item({
 });
 
 const defaultItems = [item1, item2, item3]
+
+
+// List Schema
+const listSchema = {
+    name: String,
+    items: [itemsSchema]
+}
+
+const List = mongoose.model("List", listSchema);
 
 
 // HOME ROUTE
@@ -76,16 +86,21 @@ app.get('/', function(req, res) {
 app.post('/', function(req, res) {
 
     const itemName = req.body.newItem;
+    const listName = req.body.list;
+
     const item = new Item({
         name: itemName
     });
 
-    if (req.body.list === 'Work List') {
-        workItems.push(item);
-        res.redirect('/work');
-    } else {
+    if (listName === date.getDate()){
         item.save();
         res.redirect('/');
+    } else {
+        List.findOne({name: listName}, function(err, foundList){
+            foundList.items.push(item);
+            foundList.save();
+            res.redirect('/' + listName);
+        });
     }
 });
 
@@ -104,21 +119,35 @@ app.post('/delete', function(req, res) {
 });
 
 
-// WORK ROUTE
-app.get('/work', function(req, res) {
-    res.render('list', {
-        listTitle: "Work List",
-        newItems: workItems
+// DYNAMIC ROUTE
+app.get('/:customListName', function(req, res){
+
+    const customListName = req.params.customListName;
+
+    List.findOne({name: customListName}, function(err, foundList){
+        if (!err){
+            if (!foundList){
+                // Create a new list
+                const list = new List({
+                    name: customListName,
+                    items: defaultItems
+                });
+
+                list.save();
+                res.redirect("/" + customListName);
+            } else {
+                // Show an existing list
+                res.render('list', {
+                    listTitle: foundList.name,
+                    newItems: foundList.items
+                });
+            }
+        }
     });
 });
 
-app.post('/work', function(req, res) {
 
-    const item = req.body.newItem;
 
-    workItems.push(item);
-    res.redirect('/work');
-});
 
 
 // ABOUT ROUTE
