@@ -24,7 +24,7 @@ const fruit = new Fruit({
 });
 
 //Save to db
-fruit.save();
+// fruit.save();
 
 
 //Person schema
@@ -42,9 +42,7 @@ const person = new Person({
     age: 37
 });
 
-//Save to db
-person.save();
-
+// person.save();
 
 const kiwi = new Fruit({
     name: "Kiwi",
@@ -65,10 +63,22 @@ const banana = new Fruit({
 });
 
 
-Fruit.insertMany([kiwi, grape, banana], function(err){
+// Fruit.insertMany([kiwi, grape, banana], function(err){
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("successfully logged fruits.")
+//     }
+// })
+
+
+Fruit.find(function(err, allFruits){
     if (err) {
         console.log(err);
     } else {
-        console.log("successfully logged fruits.")
+        allFruits.forEach(fruit => console.log(fruit.name));
+
+        //close connection
+        mongoose.connection.close()
     }
-})
+});
