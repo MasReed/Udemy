@@ -3,28 +3,37 @@ import React, {useState} from "react";
 function App() {
 
     // Complex State
-    const [ fullName, setFullName ] = useState({
+    const [ contact, setContact ] = useState({
         fName: "",
-        lName: ""
+        lName: "",
+        email: ""
     });
 
-    function updateName(event) {
+    function updateContact(event) {
 
         const { name, value } = event.target;
 
         // Maintain previous state value when setting new state
-        setFullName( prevValue => {
+        setContact( prevValue => {
 
             if (name === "fName") {
                 return {
                     fName: value,
-                    lName: prevValue.lName
+                    lName: prevValue.lName,
+                    email: prevValue.email
                 };
 
             } else if (name === "lName") {
                 return {
                     fName: prevValue.fName,
-                    lName: value
+                    lName: value,
+                    email: prevValue.email
+                };
+            } else if (name === "email") {
+                return {
+                    fName: prevValue.fName,
+                    lName: prevValue.lName,
+                    email: value
                 };
             }
         });
@@ -32,10 +41,12 @@ function App() {
 
     return (
         <div className="container">
-            <h1>Hello {fullName.fName} {fullName.lName}</h1>
+            <h1>Hello {contact.fName} {contact.lName}</h1>
+            <p>{contact.email}</p>
             <form>
-                <input name="fName" onChange={updateName} placeholder="First Name" value={fullName.fName}/>
-                <input name="lName" onChange={updateName} placeholder="Last Name" value={fullName.lName}/>
+                <input name="fName" onChange={updateContact} placeholder="First Name" value={contact.fName}/>
+                <input name="lName" onChange={updateContact} placeholder="Last Name" value={contact.lName}/>
+                <input name="email" onChange={updateContact} placeholder="Email" value={contact.email}/>
                 <button>Submit</button>
             </form>
         </div>
