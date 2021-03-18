@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 function App() {
   const [headingText, setHeadingText] = useState("Hello");
-  const [bgColor, setBgColor] = useState("white");
   const [isMousedOver, setMousedOver] = useState(false);
 
   function handleClick() {
